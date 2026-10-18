@@ -9,6 +9,9 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const SCHEMA_DIR = path.join(HERE, '..', 'schemas');
 
 // ---------- mini JSON Schema validator (type, required, enum, properties, items, pattern, minimum, minItems) ----------
+// Injectable clock: real time normally; the selftest pins it per fixture so time-dependent fixtures never go stale.
+const clock = { now: () => Date.now() };
+
 function typeOf(v) {
   if (v === null) return 'null';
   if (Array.isArray(v)) return 'array';
@@ -144,7 +147,7 @@ export function validateState(dir) {
       const ts = Date.parse(hb.ts);
       if (Number.isNaN(ts)) err(`heartbeat.json: ts "${hb.ts}" is not a parseable timestamp`);
       else if (hb.status === 'running') {
-        const age = (Date.now() - ts) / 1000;
+        const age = (clock.now() - ts) / 1000;
         const derived = age < 1.5 * hb.interval_s ? 'alive' : age < 3 * hb.interval_s ? 'late' : 'dead';
         // Stored liveness is written at beat time (always fresh). Claiming late/dead while the beat is fresh is inconsistent.
         const rank = { alive: 0, late: 1, dead: 2 };
@@ -198,8 +201,12 @@ function selftest() {
   let bad = 0;
   const run = (kind, dir) => {
     const name = path.basename(dir);
+    // pin 'now' to 5s after the fixture's heartbeat timestamp (if any), so a 'fresh heartbeat' fixture stays fresh forever
+    let pinned = null;
+    try { const hb = JSON.parse(fs.readFileSync(path.join(dir, 'heartbeat.json'), 'utf8')); const t = Date.parse(hb.ts); if (!Number.isNaN(t)) pinned = t + 5000; } catch {}
+    clock.now = pinned === null ? () => Date.now() : () => pinned;
     const r = validateState(dir);
-    // fixtures use fixed old timestamps; ignore nothing - heartbeat status in fixtures is paused/stopped
+    clock.now = () => Date.now();
     const ok = kind === 'valid' ? r.errors.length === 0 : r.errors.length > 0;
     console.log(`${ok ? 'pass' : 'FAIL'} ${kind}/${name}${kind === 'invalid' && r.errors[0] ? `  -> ${r.errors[0]}` : ''}`);
     if (!ok) { bad++; if (kind === 'valid') r.errors.forEach((e) => console.log(`    ${e}`)); }
