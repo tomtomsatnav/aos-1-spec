@@ -1,0 +1,38 @@
+{"ts":"2026-10-17T15:09:05.610Z","seq":1,"type":"goal.created","actor":"human","goal_id":"goal-1","task_id":null,"data":{"title":"Ship a working AOS-1 orchestration dashboard"}}
+{"ts":"2026-10-17T15:09:05.610Z","seq":2,"type":"agent.spawned","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"agent":"agent-ui"}}
+{"ts":"2026-10-17T15:09:05.610Z","seq":3,"type":"agent.spawned","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"agent":"agent-heartbeat"}}
+{"ts":"2026-10-17T15:09:05.610Z","seq":4,"type":"agent.spawned","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"agent":"agent-conformance"}}
+{"ts":"2026-10-17T15:09:05.610Z","seq":5,"type":"task.created","actor":"orchestrator","goal_id":"goal-1","task_id":"t-1","data":{"assignee":"agent-heartbeat"}}
+{"ts":"2026-10-17T15:09:05.610Z","seq":6,"type":"task.created","actor":"orchestrator","goal_id":"goal-1","task_id":"t-2","data":{"assignee":"agent-ui"}}
+{"ts":"2026-10-17T15:09:05.610Z","seq":7,"type":"task.created","actor":"orchestrator","goal_id":"goal-1","task_id":"t-3","data":{"assignee":"agent-conformance"}}
+{"ts":"2026-10-17T15:09:05.610Z","seq":8,"type":"task.created","actor":"orchestrator","goal_id":"goal-1","task_id":"t-4","data":{"assignee":"agent-heartbeat"}}
+{"ts":"2026-10-17T15:09:05.610Z","seq":9,"type":"task.created","actor":"orchestrator","goal_id":"goal-1","task_id":"t-5","data":{"assignee":"agent-conformance"}}
+{"ts":"2026-10-17T22:04:53.990Z","seq":10,"type":"task.ready","actor":"orchestrator","goal_id":"goal-1","task_id":"t-1","data":{}}
+{"ts":"2026-10-17T22:04:53.990Z","seq":11,"type":"task.ready","actor":"orchestrator","goal_id":"goal-1","task_id":"t-2","data":{}}
+{"ts":"2026-10-17T22:04:53.991Z","seq":12,"type":"task.started","actor":"agent-heartbeat","goal_id":"goal-1","task_id":"t-1","data":{"attempt":1,"mode":"simulated"}}
+{"ts":"2026-10-17T22:04:53.991Z","seq":13,"type":"task.started","actor":"agent-ui","goal_id":"goal-1","task_id":"t-2","data":{"attempt":1,"mode":"simulated"}}
+{"ts":"2026-10-17T22:04:53.993Z","seq":14,"type":"heartbeat.tick","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"seq":1,"ok":true,"ms":5,"goal_status":"active","tasks":{"running":2,"pending":3},"mode":"simulated","started":["t-1","t-2"],"completed":[],"stalled":[],"created":[],"ready":["t-1","t-2"]}}
+{"ts":"2026-10-17T22:05:03.994Z","seq":15,"type":"heartbeat.tick","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"seq":2,"ok":true,"ms":3,"goal_status":"active","tasks":{"running":2,"pending":3},"mode":"simulated","started":[],"completed":[],"stalled":[],"created":[],"ready":[]}}
+{"ts":"2026-10-17T22:05:13.994Z","seq":16,"type":"task.completed","actor":"agent-heartbeat","goal_id":"goal-1","task_id":"t-1","data":{"result":"Simulated completion of \"Implement heartbeat tick engine\""}}
+{"ts":"2026-10-17T22:05:13.994Z","seq":17,"type":"task.completed","actor":"agent-ui","goal_id":"goal-1","task_id":"t-2","data":{"result":"Simulated completion of \"Build dashboard UI\""}}
+{"ts":"2026-10-17T22:05:13.996Z","seq":18,"type":"heartbeat.tick","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"seq":3,"ok":true,"ms":4,"goal_status":"active","tasks":{"done":2,"pending":3},"mode":"simulated","started":[],"completed":["t-1","t-2"],"stalled":[],"created":[],"ready":[]}}
+{"ts":"2026-10-17T22:05:23.995Z","seq":19,"type":"goal.updated","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"criterion":"c1","met":true}}
+{"ts":"2026-10-17T22:05:23.995Z","seq":20,"type":"task.ready","actor":"orchestrator","goal_id":"goal-1","task_id":"t-3","data":{}}
+{"ts":"2026-10-17T22:05:23.995Z","seq":21,"type":"task.ready","actor":"orchestrator","goal_id":"goal-1","task_id":"t-4","data":{}}
+{"ts":"2026-10-17T22:05:23.995Z","seq":22,"type":"task.started","actor":"agent-conformance","goal_id":"goal-1","task_id":"t-3","data":{"attempt":1,"mode":"simulated"}}
+{"ts":"2026-10-17T22:05:23.996Z","seq":23,"type":"task.started","actor":"agent-heartbeat","goal_id":"goal-1","task_id":"t-4","data":{"attempt":1,"mode":"simulated"}}
+{"ts":"2026-10-17T22:05:23.997Z","seq":24,"type":"heartbeat.tick","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"seq":4,"ok":true,"ms":3,"goal_status":"active","tasks":{"done":2,"running":2,"pending":1},"mode":"simulated","started":["t-3","t-4"],"completed":[],"stalled":[],"created":[],"ready":["t-3","t-4"]}}
+{"ts":"2026-10-17T22:05:33.998Z","seq":25,"type":"heartbeat.tick","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"seq":5,"ok":true,"ms":1,"goal_status":"active","tasks":{"done":2,"running":2,"pending":1},"mode":"simulated","started":[],"completed":[],"stalled":[],"created":[],"ready":[]}}
+{"ts":"2026-10-17T22:05:44.001Z","seq":26,"type":"task.completed","actor":"agent-conformance","goal_id":"goal-1","task_id":"t-3","data":{"result":"Simulated completion of \"Write conformance checks\""}}
+{"ts":"2026-10-17T22:05:44.001Z","seq":27,"type":"task.completed","actor":"agent-heartbeat","goal_id":"goal-1","task_id":"t-4","data":{"result":"Simulated completion of \"Wire control API (pause/resume/cancel/note)\""}}
+{"ts":"2026-10-17T22:05:44.003Z","seq":28,"type":"heartbeat.tick","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"seq":6,"ok":true,"ms":3,"goal_status":"active","tasks":{"done":4,"pending":1},"mode":"simulated","started":[],"completed":["t-3","t-4"],"stalled":[],"created":[],"ready":[]}}
+{"ts":"2026-10-17T22:05:54.002Z","seq":29,"type":"goal.updated","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"criterion":"c2","met":true}}
+{"ts":"2026-10-17T22:05:54.002Z","seq":30,"type":"task.ready","actor":"orchestrator","goal_id":"goal-1","task_id":"t-5","data":{}}
+{"ts":"2026-10-17T22:05:54.002Z","seq":31,"type":"task.started","actor":"agent-conformance","goal_id":"goal-1","task_id":"t-5","data":{"attempt":1,"mode":"simulated"}}
+{"ts":"2026-10-17T22:05:54.004Z","seq":32,"type":"heartbeat.tick","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"seq":7,"ok":true,"ms":3,"goal_status":"active","tasks":{"done":4,"running":1},"mode":"simulated","started":["t-5"],"completed":[],"stalled":[],"created":[],"ready":["t-5"]}}
+{"ts":"2026-10-17T22:06:04.005Z","seq":33,"type":"heartbeat.tick","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"seq":8,"ok":true,"ms":1,"goal_status":"active","tasks":{"done":4,"running":1},"mode":"simulated","started":[],"completed":[],"stalled":[],"created":[],"ready":[]}}
+{"ts":"2026-10-17T22:06:14.007Z","seq":34,"type":"task.completed","actor":"agent-conformance","goal_id":"goal-1","task_id":"t-5","data":{"result":"Simulated completion of \"Run conformance suite on live dashboard\""}}
+{"ts":"2026-10-17T22:06:14.008Z","seq":35,"type":"heartbeat.tick","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"seq":9,"ok":true,"ms":3,"goal_status":"active","tasks":{"done":5},"mode":"simulated","started":[],"completed":["t-5"],"stalled":[],"created":[],"ready":[]}}
+{"ts":"2026-10-17T22:06:24.007Z","seq":36,"type":"goal.updated","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"criterion":"c3","met":true}}
+{"ts":"2026-10-17T22:06:24.007Z","seq":37,"type":"goal.achieved","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"criteria":3}}
+{"ts":"2026-10-17T22:06:24.009Z","seq":38,"type":"heartbeat.tick","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{"seq":10,"ok":true,"ms":2,"goal_status":"achieved","tasks":{"done":5},"mode":"simulated","started":[],"completed":[],"stalled":[],"created":[],"ready":[]}}

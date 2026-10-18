@@ -1,0 +1,9 @@
+{
+  "seq": 10,
+  "ts": "2026-10-17T22:06:24.006Z",
+  "interval_s": 10,
+  "status": "stopped",
+  "liveness": "alive",
+  "last_tick_ms": 2,
+  "consecutive_errors": 0
+}

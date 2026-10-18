@@ -1,0 +1,41 @@
+{
+  "id": "goal-1",
+  "title": "Ship a working AOS-1 orchestration dashboard",
+  "description": "Deliver a dashboard and heartbeat engine conforming to AOS-1 (SPEC.md) sections 4 and 8.",
+  "status": "achieved",
+  "success_criteria": [
+    {
+      "id": "c1",
+      "text": "Dashboard shows goal, heartbeat liveness, task board, agent roster and event stream",
+      "met": true,
+      "requires": [
+        "t-2"
+      ]
+    },
+    {
+      "id": "c2",
+      "text": "Heartbeat ticks follow the section 4 protocol with pause/resume/cancel controls",
+      "met": true,
+      "requires": [
+        "t-1",
+        "t-4"
+      ]
+    },
+    {
+      "id": "c3",
+      "text": "Conformance checks for sections 4 and 8 pass against the running system",
+      "met": true,
+      "requires": [
+        "t-3",
+        "t-5"
+      ]
+    }
+  ],
+  "budget": {
+    "max_ticks": 1000,
+    "max_usd": 20,
+    "spent_usd": 1.25
+  },
+  "created_at": "2026-10-17T15:09:05.610Z",
+  "updated_at": "2026-10-17T22:06:24.008Z"
+}

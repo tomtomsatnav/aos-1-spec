@@ -1,0 +1,39 @@
+[
+  {
+    "id": "agent-ui",
+    "role": "Builds the dashboard UI",
+    "capabilities": [
+      "html",
+      "css",
+      "js"
+    ],
+    "can_delegate": false,
+    "status": "idle",
+    "current_task": null,
+    "last_event_at": "2026-10-17T22:05:13.994Z"
+  },
+  {
+    "id": "agent-heartbeat",
+    "role": "Implements heartbeat engine and control API",
+    "capabilities": [
+      "node",
+      "scheduling"
+    ],
+    "can_delegate": false,
+    "status": "idle",
+    "current_task": null,
+    "last_event_at": "2026-10-17T22:05:44.001Z"
+  },
+  {
+    "id": "agent-conformance",
+    "role": "Verifies AOS-1 conformance",
+    "capabilities": [
+      "testing",
+      "spec-review"
+    ],
+    "can_delegate": false,
+    "status": "idle",
+    "current_task": null,
+    "last_event_at": "2026-10-17T22:06:14.006Z"
+  }
+]

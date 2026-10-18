@@ -1,0 +1,11 @@
+[
+  {
+    "id": "agent-a",
+    "role": "worker",
+    "capabilities": [],
+    "can_delegate": false,
+    "status": "idle",
+    "current_task": null,
+    "last_event_at": null
+  }
+]

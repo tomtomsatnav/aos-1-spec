@@ -1,0 +1,9 @@
+{
+  "seq": 3,
+  "ts": "2026-01-01T00:00:00Z",
+  "interval_s": 60,
+  "status": "paused",
+  "liveness": "zombie",
+  "last_tick_ms": 5,
+  "consecutive_errors": 0
+}

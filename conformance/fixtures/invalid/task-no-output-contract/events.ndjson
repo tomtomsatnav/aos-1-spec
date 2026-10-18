@@ -1,0 +1,2 @@
+{"ts":"2026-01-01T00:00:00Z","seq":0,"type":"goal.created","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{}}
+{"ts":"2026-01-01T00:00:00Z","seq":1,"type":"heartbeat.tick","actor":"orchestrator","goal_id":"goal-1","task_id":null,"data":{}}

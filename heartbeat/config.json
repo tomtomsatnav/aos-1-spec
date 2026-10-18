@@ -1,0 +1,9 @@
+{
+  "interval_s": 10,
+  "stall_after_s": 120,
+  "max_parallel": 2,
+  "dispatch_command": null,
+  "dispatch_timeout_s": 600,
+  "sim_ticks_to_done": 2,
+  "sim_cost_usd": 0.25
+}

@@ -1,0 +1,19 @@
+{
+  "id": "goal-1",
+  "title": "G",
+  "description": "",
+  "status": "running",
+  "success_criteria": [
+    {
+      "id": "c1",
+      "text": "x",
+      "met": false
+    }
+  ],
+  "budget": {
+    "max_ticks": 100,
+    "max_usd": 5
+  },
+  "created_at": "2026-01-01T00:00:00Z",
+  "updated_at": "2026-01-01T00:00:00Z"
+}

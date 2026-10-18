@@ -1,0 +1,113 @@
+[
+  {
+    "id": "t-1",
+    "goal_id": "goal-1",
+    "title": "Implement heartbeat tick engine",
+    "assignee": "agent-heartbeat",
+    "status": "done",
+    "depends_on": [],
+    "attempts": 1,
+    "max_attempts": 3,
+    "inputs": {},
+    "output_contract": "heartbeat/tick.mjs implementing SPEC section 4",
+    "acceptance": [
+      "Tick runs the 8 steps in order",
+      "Overlapping ticks emit heartbeat.skipped"
+    ],
+    "artifacts": [],
+    "created_at": "2026-10-17T15:09:05.610Z",
+    "updated_at": "2026-10-17T22:05:13.994Z",
+    "sim_ticks": 2,
+    "result": "Simulated completion of \"Implement heartbeat tick engine\""
+  },
+  {
+    "id": "t-2",
+    "goal_id": "goal-1",
+    "title": "Build dashboard UI",
+    "assignee": "agent-ui",
+    "status": "done",
+    "depends_on": [],
+    "attempts": 1,
+    "max_attempts": 3,
+    "inputs": {},
+    "output_contract": "ui/ served statically, rendering all section 8 panels",
+    "acceptance": [
+      "Shows goal, criteria, heartbeat, tasks, agents, events",
+      "Pause/resume/cancel controls work"
+    ],
+    "artifacts": [],
+    "created_at": "2026-10-17T15:09:05.610Z",
+    "updated_at": "2026-10-17T22:05:13.994Z",
+    "sim_ticks": 2,
+    "result": "Simulated completion of \"Build dashboard UI\""
+  },
+  {
+    "id": "t-3",
+    "goal_id": "goal-1",
+    "title": "Write conformance checks",
+    "assignee": "agent-conformance",
+    "status": "done",
+    "depends_on": [
+      "t-1"
+    ],
+    "attempts": 1,
+    "max_attempts": 3,
+    "inputs": {},
+    "output_contract": "Checklist/script covering section 4 and 8 MUSTs",
+    "acceptance": [
+      "Each MUST maps to a check"
+    ],
+    "artifacts": [],
+    "created_at": "2026-10-17T15:09:05.610Z",
+    "updated_at": "2026-10-17T22:05:44.001Z",
+    "sim_ticks": 2,
+    "result": "Simulated completion of \"Write conformance checks\""
+  },
+  {
+    "id": "t-4",
+    "goal_id": "goal-1",
+    "title": "Wire control API (pause/resume/cancel/note)",
+    "assignee": "agent-heartbeat",
+    "status": "done",
+    "depends_on": [
+      "t-1"
+    ],
+    "attempts": 1,
+    "max_attempts": 3,
+    "inputs": {},
+    "output_contract": "POST /api/control writing human.* events",
+    "acceptance": [
+      "Pause takes effect at next tick",
+      "Cancel stops the heartbeat"
+    ],
+    "artifacts": [],
+    "created_at": "2026-10-17T15:09:05.610Z",
+    "updated_at": "2026-10-17T22:05:44.001Z",
+    "sim_ticks": 2,
+    "result": "Simulated completion of \"Wire control API (pause/resume/cancel/note)\""
+  },
+  {
+    "id": "t-5",
+    "goal_id": "goal-1",
+    "title": "Run conformance suite on live dashboard",
+    "assignee": "agent-conformance",
+    "status": "done",
+    "depends_on": [
+      "t-2",
+      "t-3",
+      "t-4"
+    ],
+    "attempts": 1,
+    "max_attempts": 3,
+    "inputs": {},
+    "output_contract": "Conformance report",
+    "acceptance": [
+      "All checks pass"
+    ],
+    "artifacts": [],
+    "created_at": "2026-10-17T15:09:05.610Z",
+    "updated_at": "2026-10-17T22:06:14.006Z",
+    "sim_ticks": 2,
+    "result": "Simulated completion of \"Run conformance suite on live dashboard\""
+  }
+]
