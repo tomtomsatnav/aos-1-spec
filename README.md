@@ -13,12 +13,16 @@ Zero dependencies, Node 18+.
 
 ## Validate
 
+New here? Read the "Goal / Task / Heartbeat" parts of [SPEC.md](SPEC.md) first; this repo is a spec plus a reference implementation, not an agent runner. It does not need Claude Code.
+
 ```sh
-make test                              # = node conformance/validate.mjs --selftest
-node conformance/validate.mjs          # validate ./state (or pass another state dir)
-node server.mjs                        # reference API on http://127.0.0.1:4317
+make test                              # < 1 s. Prints one "pass" line per fixture; ends "selftest: all fixtures behaved as expected"
+node conformance/validate.mjs          # check the sample ./state (or pass your own state dir); "OK ... 0 violation(s)" means it conforms
+node server.mjs                        # reference API on http://127.0.0.1:4317 (PORT=4400 node server.mjs for another port)
 AOS_UI_DIR=/path/to/ui node server.mjs   # also serve a dashboard UI from that directory
 ```
+
+The server has no UI of its own: `/` shows a stub page, and `curl http://127.0.0.1:4317/api/state` returns the goal, tasks and agents as JSON. Its "agents" are simulated (see [docs/reference-runner.md](docs/reference-runner.md)); nothing here calls a model. "Heartbeat" = the periodic tick that re-evaluates the Goal; "conformance" = the validator that checks state files against the schemas and the spec's MUSTs.
 
 ## Related repos
 
