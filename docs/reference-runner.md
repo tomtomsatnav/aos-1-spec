@@ -7,7 +7,7 @@ The spec itself is [SPEC.md](../SPEC.md). Paths below are relative to the repo r
 Requires Node 18+. There are no dependencies to install.
 
 ```sh
-node server.mjs                       # dashboard + API at http://127.0.0.1:4317
+node server.mjs                       # API at http://127.0.0.1:4317 (set AOS_UI_DIR=/path/to/ui to also serve a dashboard UI)
 node conformance/validate.mjs         # validate ./state against schemas and the spec's MUSTs
 node conformance/validate.mjs path/to/state   # validate another state directory
 node conformance/validate.mjs --selftest      # prove the validator catches the negative fixtures
@@ -19,10 +19,9 @@ The validator exits 0 when the state conforms and 1 when it does not. Each viola
 
 ```
 SPEC.md                 AOS-1 normative specification
-README.md               this file
+README.md               overview
 ROADMAP.md              what exists, known limitations, ideas
-server.mjs              reference HTTP server (serves ui/ and the state API)
-ui/                     dashboard (goal, heartbeat, task board, agents, events, pause/resume/cancel)
+server.mjs              reference HTTP server (state API; serves $AOS_UI_DIR if set)
 heartbeat/              heartbeat runner and config.json
 state/                  runtime state (the file-based binding)
   goal.json               Goal

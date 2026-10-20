@@ -3,11 +3,10 @@
 ## What exists
 
 - **AOS-1 spec** (`SPEC.md`), JSON Schemas, a zero-dependency conformance validator with positive and negative fixtures, a reference server and a heartbeat runner with a simulated dispatcher.
-- **Claude Code live dashboard** (the `aos-dashboard` plugin):
+- **Claude Code live dashboard** (the `aos-dashboard` plugin, now in its own repo: https://github.com/tomtomsatnav/agent-orchestration-standard):
   - Hooks for 16 Claude Code events, written as sanitized one-line records to a local log.
   - A read-only monitor on `127.0.0.1:4318`: agents, subagents and projects (grouped by project root), per-agent model, tokens, run time and tok/min, tool feed, file-conflict detection, stuck / stalled / errored rules (per-model stuck thresholds), alerts, replay (`/api/state?at=`) and history markers.
   - Web UI (project graph, drawers, replay scrubber, cost readout, light/dark themes), terminal UI (`aos-dash`), a read-only MCP server (7 tools), an optional status line and a branded macOS notifier.
-  - `make install` / `make doctor` / `make test`.
 
 ## Known limitations
 

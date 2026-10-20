@@ -1,0 +1,9 @@
+{
+  "name": "aos-1-spec",
+  "version": "1.0.0",
+  "description": "AOS-1: Agent Orchestration Standard (spec, schemas, conformance validator, reference runner)",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node conformance/validate.mjs --selftest" }
+}

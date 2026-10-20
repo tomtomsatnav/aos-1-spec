@@ -1,4 +1,4 @@
-// AOS-1 reference server: static ui/, GET /api/state, POST /api/control, in-process heartbeat loop.
+// AOS-1 reference server: optional static UI ($AOS_UI_DIR), GET /api/state, POST /api/control, in-process heartbeat loop.
 // Zero dependencies, Node 18+ ESM. Binds 127.0.0.1 only.
 import http from 'node:http';
 import fs from 'node:fs';
@@ -11,7 +11,9 @@ import {
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const P = paths(ROOT);
-const UI = path.join(ROOT, 'ui');
+// Optional UI directory (e.g. the ui/ folder of the dashboard repo). Without it, / serves a tiny built-in page.
+const UI = process.env.AOS_UI_DIR ? path.resolve(process.env.AOS_UI_DIR) : null;
+const INDEX = '<!doctype html><meta charset=utf-8><title>AOS-1 reference server</title><h1>AOS-1 reference server</h1><p>No UI configured (set AOS_UI_DIR). JSON API: <a href=/api/state>/api/state</a>, POST /api/control.</p>';
 const PORT = (() => { const n = Number(process.env.PORT); return Number.isInteger(n) && n > 0 && n < 65536 ? n : 4317; })();
 const HOST = '127.0.0.1';
 const MAX_BODY = 8 * 1024;
@@ -146,6 +148,11 @@ function readBody(req) {
 }
 
 function serveStatic(req, res, pathname) {
+  if (!UI) {
+    if (pathname !== '/') return send(res, 404, { error: 'not found' });
+    res.writeHead(200, { ...HEADERS, 'Content-Type': MIME['.html'] });
+    return res.end(req.method === 'HEAD' ? undefined : INDEX);
+  }
   let rel;
   try { rel = decodeURIComponent(pathname); } catch { return send(res, 400, { error: 'bad path' }); }
   if (rel.includes('\0') || rel.includes('\\')) return send(res, 400, { error: 'bad path' });
@@ -188,7 +195,7 @@ const server = http.createServer(async (req, res) => {
 
 recoverOnStart();
 server.listen(PORT, HOST, () => {
-  console.log(`AOS-1 dashboard on http://${HOST}:${PORT}  (interval ${loadConfig(ROOT).interval_s}s)`);
+  console.log(`AOS-1 reference server on http://${HOST}:${PORT}  (interval ${loadConfig(ROOT).interval_s}s)`);
   schedule();
 });
 
