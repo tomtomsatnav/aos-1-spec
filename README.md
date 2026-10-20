@@ -1,5 +1,7 @@
 # AOS-1: Agent Orchestration Standard
 
+[![CI](https://github.com/tomtomsatnav/aos-1-spec/actions/workflows/ci.yml/badge.svg)](https://github.com/tomtomsatnav/aos-1-spec/actions/workflows/ci.yml)
+
 AOS-1 is a minimal, runtime-agnostic contract for orchestrating several AI agents toward one standing **Goal**. A periodic **Heartbeat** re-evaluates the Goal, reaps stalled work, plans, dispatches ready Tasks, and enforces budgets until the Goal is achieved, blocked, or cancelled. All state lives in plain files, and an append-only event log is the source of truth.
 
 - [SPEC.md](SPEC.md): the normative specification; [ROADMAP.md](ROADMAP.md): status and known limits
